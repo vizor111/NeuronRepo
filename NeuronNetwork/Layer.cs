@@ -6,7 +6,9 @@ namespace NeuronNetwork
     {
         public List<Neuron> Neurons { get; set; }
 
-        public int Count
+        public NeuronType Type { get; set; }
+
+        public int NeuronsCount
         {
             get { return Neurons?.Count ?? 0; }
         }
@@ -14,6 +16,7 @@ namespace NeuronNetwork
         public Layer(List<Neuron> neurons, NeuronType type = NeuronType.Normal)
         {
             Neurons = neurons;
+            Type = type;
         }
 
         public List<double> GetSignals()
@@ -26,6 +29,11 @@ namespace NeuronNetwork
             }
 
             return result;
+        }
+
+        public override string ToString()
+        {
+            return Type.ToString();
         }
     }
 }
